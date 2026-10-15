@@ -10,4 +10,4 @@ replicas:
 images:
   - name: fastapi-app
     newName: mayarchaabani/fastapi-app
-    newTag:  v99-does-not-exist
+    newTag: v2
