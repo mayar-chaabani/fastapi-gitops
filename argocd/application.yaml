@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fastapi-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mayar-chaabani/fastapi-gitops.git
+    targetRevision: main
+    path: k8s/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: fastapi-dev
+  syncPolicy:
+    automated:
+      prune: true      # supprime ce qui n'est plus dans Git
+      selfHeal: true   # corrige le drift manuel
+    syncOptions:
+      - CreateNamespace=true
