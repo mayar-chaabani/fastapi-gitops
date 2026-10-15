@@ -6,8 +6,8 @@ resources:
   - ../../base
 replicas:
   - name: fastapi-app
-    count: 2
+    count: 4
 images:
   - name: fastapi-app
     newName: mayarchaabani/fastapi-app
-    newTag: v1
+    newTag: v2
